@@ -1,0 +1,19 @@
+{
+  "name": "crud-application",
+  "version": "1.0.0",
+  "description": "monorepo for the crud-application",
+  "main": "index.js",
+  "author": "Shashi Kumar D M",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/node-server",
+    "packages/react-ui"
+  ],
+  "scripts": {
+    "nodeServer-cmd": "npm -w packages/node-server",
+    "reactUi-cmd": "npm -w packages/react-ui",
+    "nodeServer-run": "npm -w packages/node-server run dev",
+    "reactUi-run": "npm -w packages/react-ui run start"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "@crud-applicaton/node-server",
+  "version": "1.0.0",
+  "description": "A  nodejs BE server for the crud-application",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon\"",
+    "start": "node -r ts-node/register dist/index.js",
+    "build": "tsc"
+  },
+  "author": "Shashi Kumra D M",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.5.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.6.1",
+    "concurrently": "^8.2.1",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.2.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "NODE_ENV=development node -r ts-node/register dist/index.js",
+    "ext": "ts, js"
+  }
+}
