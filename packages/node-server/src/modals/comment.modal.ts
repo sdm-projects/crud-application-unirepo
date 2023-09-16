@@ -3,7 +3,7 @@ import { Comment } from "@crud-application/common/types";
 
 const commentSchema = new Schema<Comment>({
     createdBy: {type: String, required: true},
-    createdAt: {type: Date, required: true, default: new Date().getMilliseconds() },
+    createdAt: {type: Date, required: true, default: new Date() },
     comment: {type: String, required: true},
 });
 

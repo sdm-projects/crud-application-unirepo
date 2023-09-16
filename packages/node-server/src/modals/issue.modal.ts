@@ -13,8 +13,8 @@ const issueSchema = new Schema<Issue>({
         default: [],
     }],
     createdBy: {type: String, required: true},
-    createAt: {type: Date, required: true, default: new Date().getMilliseconds()},
-    updatedAt: {type: Date, required: true, default: new Date().getMilliseconds()}
+    createAt: {type: Date, required: true, default: new Date()},
+    updatedAt: {type: Date, required: true, default: new Date()}
 });
 
 issueSchema.set('toJSON', {

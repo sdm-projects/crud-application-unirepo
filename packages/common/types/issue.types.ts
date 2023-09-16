@@ -15,7 +15,7 @@ export interface Issue {
     id: string;
     title: string;
     description: string;
-    tags: string;
+    tags: string[];
     status: IssueStatus;
     comments: Comments;
     createdBy: string;
@@ -26,7 +26,7 @@ export interface Issue {
 export type Issues = Issue[];
 
 export type CreateCommentRequest = Pick<Comment, "createdBy" | "comment">;
-export type CreteComment = Omit<Comment, "id">;
+export type CreateComment = Omit<Comment, "id">;
 
 export type CreateIssueRequest = Pick<Issue, "title" | "description" | "createdBy"> & Partial<Pick<Issue, "tags">>;
 export type CreateIssue = Omit<Issue, "id">;
