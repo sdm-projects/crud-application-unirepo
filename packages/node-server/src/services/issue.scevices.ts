@@ -19,7 +19,7 @@ export const getIssueById = async (issueId: string) => {
 
     } catch(e) {
         if(e instanceof Error.CastError || e instanceof Error.DocumentNotFoundError) {
-            throw new InvalidRequest(`issue id: ${issueId} is invalid`);
+            throw new InvalidRequest(`issue id: ${issueId} is invalid or not found`);
         }
         throw e;
     }
@@ -32,7 +32,7 @@ export const getIssueByIdNoPopulate = async (issueId: string) => {
 
     } catch(e) {
         if(e instanceof Error.CastError || e instanceof Error.DocumentNotFoundError) {
-            throw new InvalidRequest(`issue id: ${issueId} is invalid`);
+            throw new InvalidRequest(`issue id: ${issueId} is invalid or not found`);
         }
         throw e;
     }

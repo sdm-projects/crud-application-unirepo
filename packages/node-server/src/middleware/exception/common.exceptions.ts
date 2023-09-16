@@ -20,3 +20,9 @@ export class DataNotFound extends CustomException {
 export class InvalidRequest extends CustomException {
     public statusCode: number = 401;
 }
+
+export const commonExceptionsList = [
+    CustomException,
+    DataNotFound,
+    InvalidRequest
+]

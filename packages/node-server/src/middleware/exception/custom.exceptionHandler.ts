@@ -1,9 +1,16 @@
 import { NextFunction, Request, Response } from "express";
-import { CustomException } from "./common.exceptions";
+import { commonExceptionsList } from "./common.exceptions";
+
+const isCustomException = (error: any) => {
+    return [
+        commonExceptionsList
+    ].find(exception => typeof exception === typeof error)
+}
 
 const customExceptionHandler = (error: any, req: Request, res: Response, next: NextFunction) => {
-    if(error instanceof CustomException) res.status(error.statusCode).json(error.json);
-    res.status(500).json({message: "Onternal server error"});
+    console.log("Enception occured: ", error)
+    if(isCustomException(error)) res.status(error.statusCode).json({success: false, error: error.json});
+    res.status(500).json({success: false, error: "Internal server error"});
 };
 
 export default customExceptionHandler;
