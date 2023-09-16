@@ -8,7 +8,8 @@
   "private": true,
   "workspaces": [
     "packages/node-server",
-    "packages/react-ui"
+    "packages/react-ui",
+    "packages\\common"
   ],
   "scripts": {
     "nodeServer-cmd": "npm -w packages/node-server",

@@ -1,8 +1,8 @@
 export abstract class CustomException {
     public abstract statusCode: number;
-    public message: string;
+    public message: string | string[];
 
-    constructor(message: string) {
+    constructor(message: string | string[]) {
         this.message = message;
     }
 
