@@ -15,7 +15,10 @@ export const getIssuesNoPopulating = async () => {
 export const getIssueById = async (issueId: string) => {
     try {
 
-        return await issueModal.findById(issueId).populate({path: "comments"});
+        const issue = await issueModal.findById(issueId).populate({path: "comments"});
+
+        if(!issue) throw new DataNotFound(`Issue with id: ${issueId} not found`);
+        return issue;
 
     } catch(e) {
         if(e instanceof Error.CastError || e instanceof Error.DocumentNotFoundError) {
@@ -28,7 +31,9 @@ export const getIssueById = async (issueId: string) => {
 export const getIssueByIdNoPopulate = async (issueId: string) => {
     try {
 
-        return await issueModal.findById(issueId);
+        const issue = await issueModal.findById(issueId);
+        if(!issue) throw new DataNotFound(`Issue with id: ${issueId} not found`);
+        return issue;
 
     } catch(e) {
         if(e instanceof Error.CastError || e instanceof Error.DocumentNotFoundError) {
