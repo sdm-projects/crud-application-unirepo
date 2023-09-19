@@ -8,7 +8,7 @@ export abstract class CustomException {
 
     get json() {
         return {
-            error: this.message,
+            [Array.isArray(this.message) ? "messages" : "message"]: this.message,
         }
     }
 }
