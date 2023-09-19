@@ -28,5 +28,5 @@ export type Issues = Issue[];
 export type CreateCommentRequest = Pick<Comment, "createdBy" | "comment">;
 export type CreateComment = Omit<Comment, "id">;
 
-export type CreateIssueRequest = Pick<Issue, "title" | "description" | "createdBy"> & Partial<Pick<Issue, "tags">>;
+export interface CreateIssueRequest extends Pick<Issue, "title" | "description" | "createdBy">, Partial<Pick<Issue, "tags">> {}
 export type CreateIssue = Omit<Issue, "id">;
